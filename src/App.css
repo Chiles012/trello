@@ -1,0 +1,63 @@
+:root{
+    --col1:#323232;
+    --col2:#aaa6ff;
+    --col3:#3f3f5b;
+    --col4:#4a4a83;
+    --col5:#4a4a83;
+}
+
+html{
+    background-color: var(--col1);
+    font-family: 'Consolas';
+    color: var(--col2);
+}
+
+.log{
+    height: 50px;
+}
+.pages{
+    display: flex;
+    list-style: none;
+    position: absolute;
+    right: 1em;
+    margin: 0;
+   
+    
+}
+.pages>li{
+    margin-right: 20px;
+}
+
+.header{
+    display: flex;
+    position: relative;
+}
+
+.table{
+margin-top: 50px;
+    border-left:  8px solid var(--col4);
+    background-color: var(--col3);
+    border-radius: 8px;
+    margin-left: 15px;
+
+}
+.cont{
+    display: grid;
+    grid-template-columns:  30% 33% 30%;
+    column-gap: 3%;
+}
+.title{
+margin-top: 10px;
+text-align: center;
+border-bottom :2px solid #4a4a83;
+}
+.task{
+list-style-image: url('./img/Logo.svg');
+font-size: 18px;
+word-wrap: break-word;
+margin-right: 15px;
+text-align: start;
+}
+ul>li{
+margin-bottom: 10px;    
+}
