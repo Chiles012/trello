@@ -4,12 +4,15 @@ import {
     GET_USER_SUCCESS
 
 } from '../types';
+import { userService } from '../services/user.service';
 
 export function getUser() {
     return async dispatch => {
         dispatch( getUserInit() );
 
-        if ( true ) {
+        const response = await userService.getUser();
+
+        if ( response.success ) {
             dispatch( getUserSuccess( { name: 'Christian Serrano', Age: 12, Tasks: [] } ) );
 
         } else {
