@@ -1,9 +1,6 @@
 import { combineReducers } from 'redux';
-
-// Poner los reducers ...
-import userReducer from "./user.reducer";
+import noteReducer from './note.reducer';
 
 export default combineReducers({
-    user: userReducer
-
+    note: noteReducer
 })

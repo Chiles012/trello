@@ -1,5 +1,7 @@
 import axios from 'axios';
 
-export default axios.create({
-    url: 'axios/url'
-})
+axios.create({
+    url: 'https://'
+});
+
+export default axios;

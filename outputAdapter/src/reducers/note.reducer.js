@@ -1,47 +1,40 @@
 import {
-    GET_USER,
-    GET_USER_ERROR,
-    GET_USER_SUCCESS
+    GET_NOTES,
+    GET_NOTES_ERROR,
+    GET_NOTES_SUCCESS
+} from '../types'
 
-} from '../types';
-
-// state ...
 const initState = {
-    user: {},
+    notes: [],
     loading: false,
     error: null
-
 }
 
 export default function( state = initState, action ) {
-    switch ( action.type ) {
-        case GET_USER:
+    switch (action.type) {
+        case GET_NOTES:
             return {
                 ...state,
+                notes: [],
                 loading: true,
-                user: {},
                 error: null
-
             }
 
-        case GET_USER_ERROR:
+        case GET_NOTES_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+
+        case GET_NOTES_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                error: action.payload
-
-            }
-
-        case GET_USER_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                user: action.payload
-
+                notes: action.payload
             }
     
         default:
-            break;
+            return state
     }
-
-}   
+}

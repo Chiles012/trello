@@ -1,6 +1,4 @@
-// Types para acciones ...
-
-// USER ...
-export const GET_USER = 'GET_USER';
-export const GET_USER_ERROR = 'GET_USER_ERROR';
-export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
+// ! Notes ...
+export const GET_NOTES = 'GET_NOTES';
+export const GET_NOTES_ERROR = 'GET_NOTES_ERROR';
+export const GET_NOTES_SUCCESS = 'GET_NOTES_SUCCESS';
