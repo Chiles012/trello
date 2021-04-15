@@ -5,7 +5,7 @@ import {
 } from '../types'
 
 const initState = {
-    notes: [],
+    list: [],
     loading: false,
     error: null
 }
