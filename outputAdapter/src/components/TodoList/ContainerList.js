@@ -1,26 +1,30 @@
 import React from 'react';
-import styled from 'styled-components';
+import ToDo from './ToDo';
 
-const Container = styled.div`
-    border-radius: 50px;
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
-    box-shadow:  20px 20px 60px #bebebe,
-                -20px -20px 60px #ffffff;
-`;
-
-const ContainerList = ({ title, tasks }) => {
+const ContainerList = ({ title, tasks, icon }) => {
 
     return (
-        <Container>
-            <h3>title</h3>
+        <div className="panel" style={{ height: '100%' }}>
+        <div className="panel-header">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className="panel-title">{title}<i className={`icon ${icon}`}></i></div>
+        </div>
+        <div className="panel-body" style={{ scrollbarWidth: 'none' }}>
             {
+                tasks.lenght === 0 ? <div className="card-subtitle text-gray">No hay tareas...</div> :
                 tasks.map( task => 
-                    <div className='task'>
-                        
-                    </div>
+                    <ToDo 
+                        key={task.Date}
+                        title={task.title}
+                        Date={task.Date}
+                        Description={task.Description}
+                    />
                 )
             }
-        </Container>
+        </div>
+        <div className="panel-footer">
+            <button style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }} className="btn btn-primary"><i className="icon icon-plus"></i>Agregar</button>
+        </div>
+      </div>
     );
 }
  
