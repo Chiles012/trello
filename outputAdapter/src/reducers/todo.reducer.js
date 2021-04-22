@@ -5,7 +5,7 @@ import {
 } from '../types'
 
 const initState = {
-    notes: [],
+    list: [],
     loading: false,
     error: null
 }
@@ -15,7 +15,7 @@ export default function( state = initState, action ) {
         case GET_NOTES:
             return {
                 ...state,
-                notes: [],
+                list: [],
                 loading: true,
                 error: null
             }

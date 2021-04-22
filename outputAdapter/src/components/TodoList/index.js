@@ -1,5 +1,7 @@
-import Note from './Note';
-import ContainerNote from './ContainerNote';
+import ToDo from './ToDo';
+import ContainerList from './ContainerList';
 
-export const Note;
-export const ContainerNote;
+export {
+    ToDo,
+    ContainerList
+}
