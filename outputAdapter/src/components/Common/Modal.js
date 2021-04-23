@@ -72,6 +72,12 @@ const Modal = ({ title, show, onHide, task }) => {
                         </div>
                     </div>
                 </div>
+                {
+                    title !== 'Add ToDo' 
+                    ?
+                        <button className='btn btn-success' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginTop: '20px' }}><i className='icon icon-forward'></i>{ done.Role === 'ToDo' ? "To Process" : "To Done" }</button>
+                    : null
+                }
             </div>
             <div class="modal-footer">
                 <div>
