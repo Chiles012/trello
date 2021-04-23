@@ -15,7 +15,7 @@ const Home = () => {
                                 [
                                     {
                                         title: "Comprar Despensa",
-                                        Date: "12/05/2020",
+                                        Date: "2020-05-22",
                                         Description: `- Leche\n
                                         - Coca 3L\n
                                         - Carne 3kg`
@@ -32,7 +32,7 @@ const Home = () => {
                                 [
                                     {
                                         title: "Comprar Despensa",
-                                        Date: "12/05/2020",
+                                        Date: "2020-05-22",
                                         Description: `- Leche\n
                                         - Coca 3L\n
                                         - Carne 3kg`
@@ -49,35 +49,35 @@ const Home = () => {
                                 [
                                     {
                                         title: "Comprar Despensa",
-                                        Date: "12/05/2020",
+                                        Date: "2020-05-22",
                                         Description: `- Leche\n
                                         - Coca 3L\n
                                         - Carne 3kg`
                                     },
                                     {
                                         title: "Comprar Despensa",
-                                        Date: "12/05/2020",
+                                        Date: "2020-05-22",
                                         Description: `- Leche\n
                                         - Coca 3L\n
                                         - Carne 3kg`
                                     },
                                     {
                                         title: "Comprar Despensa",
-                                        Date: "12/05/2020",
+                                        Date: "2020-05-22",
                                         Description: `- Leche\n
                                         - Coca 3L\n
                                         - Carne 3kg`
                                     },
                                     {
                                         title: "Comprar Despensa",
-                                        Date: "12/05/2020",
+                                        Date: "2020-05-22",
                                         Description: `- Leche\n
                                         - Coca 3L\n
                                         - Carne 3kg`
                                     },
                                     {
                                         title: "Comprar Despensa",
-                                        Date: "12/05/2020",
+                                        Date: "2020-05-22",
                                         Description: `- Leche\n
                                         - Coca 3L\n
                                         - Carne 3kg`
