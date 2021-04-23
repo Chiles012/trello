@@ -1,16 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import {
-  Navbar,
-  NavDropdown,
-  MenuItem,
-  NavItem,
-  Nav,
-  Popover,
-  Tooltip,
-  Button,
-  Modal,
-  OverlayTrigger
-} from "react-bootstrap";
+import { Button, Modal,} from "react-bootstrap";
 
 const LoginForm = (props) => {
   
@@ -201,7 +190,7 @@ const LoginForm = (props) => {
             <h2>{ mode === "login" ? "Login" : mode === "register" ? "Register" : "Forgot Password" }</h2>
           </Modal.Header>
           <Modal.Body>
-            {mode == "login" ? (renderLogin()) : mode === "register" ? (renderRegister()) : (renderForgot())}
+            {mode === "login" ? (renderLogin()) : mode === "register" ? (renderRegister()) : (renderForgot())}
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={props.onClose}>Close</Button>

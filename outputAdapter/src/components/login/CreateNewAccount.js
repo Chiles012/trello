@@ -1,18 +1,5 @@
 import React, { Component } from 'react';
 
-import {
-  Navbar,
-  NavDropdown,
-  MenuItem,
-  NavItem,
-  Nav,
-  Popover,
-  Tooltip,
-  Button,
-  Modal,
-  OverlayTrigger
-} from 'react-bootstrap';
-
 const CreateNewAccount = () => {
   
     return(
