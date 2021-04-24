@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal } from '../Common';
+import { Modal, TaskModal } from '../Common';
 
 const ToDo = ({ title, Date, Description, User, Role }) => {
 
@@ -15,14 +15,20 @@ const ToDo = ({ title, Date, Description, User, Role }) => {
         else return 'default';
     }
 
+    const checkDone = () => {
+        if ( Role === 'Done' ) setShow(true);
+    }
+
     return ( 
-        <div className={`card ${bg()}`} style={{ border: 'none', margin: '5px 0', cursor: cursor() }}>
-            <div className="card-header">
-                <div className="card-title h5">{title}</div>
-                <div className="card-subtitle text-gray">{Date}</div>
-            </div>
-            <div className="card-body" style={{ padding: '.8rem' }}>
-                {Description}
+        <div>
+            <div onClick={() => checkDone()} className={`card ${bg()}`} style={{ border: 'none', margin: '5px 0', cursor: cursor() }}>
+                <div className="card-header">
+                    <div className="card-title h5">{title}</div>
+                    <div className="card-subtitle text-gray">{Date}</div>
+                </div>
+                <div className="card-body" style={{ padding: '.8rem' }}>
+                    {Description}
+                </div>
             </div>
             {
                 Role !== 'Done' 
@@ -32,18 +38,40 @@ const ToDo = ({ title, Date, Description, User, Role }) => {
                     </div>
                 : null
             }
-            <Modal
-                show={show}
-                onHide={setShow}
-                title='Edit'
-                task={{
-                    title: title,
-                    Date: Date,
-                    Description: Description,
-                    User: User,
-                    Role: Role
-                }}
-            />
+            {
+                Role !== 'Done' 
+                ?
+                    <Modal
+                        show={show}
+                        onHide={setShow}
+                        title='Edit'
+                        task={{
+                            title: title,
+                            Date: Date,
+                            Description: Description,
+                            User: User,
+                            Role: Role
+                        }}
+                    />
+                : null
+            }
+            {
+                Role === 'Done' 
+                ?
+                    <TaskModal
+                        show={show}
+                        setTaskCheck={setShow}
+                        title={title}
+                        task={{
+                            title: title,
+                            Date: Date,
+                            Description: Description,
+                            User: User,
+                            Role: Role
+                        }}
+                    />
+                : null
+            }
         </div>
     );
 }

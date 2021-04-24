@@ -36,9 +36,9 @@ const ContainerList = ({ title, tasks, icon }) => {
         >
             {
                 tasks.lenght === 0 ? <div className="card-subtitle text-gray">No hay tareas...</div> :
-                tasks.map( task => 
+                tasks.map( (task, i) => 
                     <ToDo 
-                        key={task.Date}
+                        key={i}
                         title={task.title}
                         Date={task.Date}
                         Description={task.Description}
