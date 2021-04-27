@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const TaskModal = ({ title, show, setTaskCheck, task }) => {
 
@@ -14,7 +14,7 @@ const TaskModal = ({ title, show, setTaskCheck, task }) => {
 
     return ( 
         <div className={`modal ${changeShow()}`} id="modal-id">
-            <a onClick={onCancel} className="modal-overlay" aria-label="Close"></a>
+            <a onClick={onCancel} className="modal-overlay" id='modal-overlay' aria-label="Close"></a>
             <div className="modal-container bg-success">
                 <div className="modal-header">
                     <a onClick={onCancel} className="btn btn-clear float-right" aria-label="Close"></a>
