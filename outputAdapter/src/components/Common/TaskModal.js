@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import Particles from 'react-particles-js';
 
 const TaskModal = ({ title, show, setTaskCheck, task }) => {
 
@@ -14,7 +15,49 @@ const TaskModal = ({ title, show, setTaskCheck, task }) => {
 
     return ( 
         <div className={`modal ${changeShow()}`} id="modal-id">
-            <a onClick={onCancel} className="modal-overlay" id='modal-overlay' aria-label="Close"></a>
+            <a onClick={onCancel} className="modal-overlay" id='modal-overlay' aria-label="Close">
+            {
+                show 
+                ?
+                <Particles
+                    params={{
+                        particles: {
+                            color: {
+                                value: "#32b643"
+                            },
+                            line_linked: {
+                                shadow: {
+                                    enable: true,
+                                    color: "#32b643",
+                                    blur: 0
+                                }
+                            }, 
+                            collisions: {
+                                enable: true,
+                            },
+                            size: {
+                                random: true,
+                                value: 5,
+                            },
+                            move: {
+                                speed: 10
+                            },
+                            opacity: {
+                                value: 1,
+                            },
+                            number: {
+                                density: {
+                                  enable: true,
+                                  value_area: 800,
+                                },
+                                value: 80,
+                            }
+                        }
+                    }} 
+                />
+                : null
+            }
+            </a>
             <div className="modal-container bg-success">
                 <div className="modal-header">
                     <a onClick={onCancel} className="btn btn-clear float-right" aria-label="Close"></a>

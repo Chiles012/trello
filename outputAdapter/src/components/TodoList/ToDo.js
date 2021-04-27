@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Modal, TaskModal } from '../Common';
+import Particles from 'react-particles-js';
 
 const ToDo = ({ title, Date, Description, User, Role }) => {
 
@@ -58,18 +59,20 @@ const ToDo = ({ title, Date, Description, User, Role }) => {
             {
                 Role === 'Done' 
                 ?
-                    <TaskModal
-                        show={show}
-                        setTaskCheck={setShow}
-                        title={title}
-                        task={{
-                            title: title,
-                            Date: Date,
-                            Description: Description,
-                            User: User,
-                            Role: Role
-                        }}
-                    />
+                    <Fragment>
+                        <TaskModal
+                            show={show}
+                            setTaskCheck={setShow}
+                            title={title}
+                            task={{
+                                title: title,
+                                Date: Date,
+                                Description: Description,
+                                User: User,
+                                Role: Role
+                            }}
+                        />
+                    </Fragment>
                 : null
             }
         </div>
