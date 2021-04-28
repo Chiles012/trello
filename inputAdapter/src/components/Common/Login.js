@@ -21,8 +21,8 @@ const Login = () => {
             </div>
             <button class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0' }}>Login</button>
             <div class="divider text-center" data-content="OR"></div>
-            <button class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0' }}>Login With Google</button>
-            <button class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0' }}>Login Width Facebook</button>
+            <button class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><i class="fab fa-google"></i>Login With Google</button>
+            <button class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><i class="fab fa-facebook-f"></i>Login Width Facebook</button>
         </form>
     );
 }
