@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 axios.create({
-    url: 'https://'
+    url: 'https://localhost:44308/api/s'
 });
 
 export default axios;
