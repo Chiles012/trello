@@ -44,7 +44,7 @@ const Register = () => {
                 }} 
             />
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%', zIndex: 400, position: 'fixed' }}>
-                <div class="card" style={{ width: '40%' }}>
+                <div class="card" style={{ width: '25%' }}>
                     <div class="card-body">
                     <ul class="tab tab-block">
                         <li class={`tab-item ${LoginActive()}`}>
