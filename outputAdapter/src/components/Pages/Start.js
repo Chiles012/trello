@@ -19,18 +19,36 @@ const Start = () => {
                     <p>Trello App</p>
                 </div>
             </div>
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }} >
                 <Link to='/Login' style={{ margin: '5px' }} className='btn btn-lg'>Login</Link>
                 <Link to='/Register' style={{ margin: '5px' }} className='btn btn-lg'>Register</Link>
             </div>
             <div class="container">
                 <div class="columns">
-                    <Note/>
-                    <Note/>
-                    <Note/>
-                    <Note/>
-                    <Note/>
-                    <Note/>
+                    <Note
+                        name='Christian Serrano'
+                        description='Developer Fron-End'
+                    />
+                    <Note
+                        name='Antonio Perez'
+                        description='Developer Fron-End'
+                    />
+                    <Note
+                        name='Francisco Ponce'
+                        description='Developer Fron-End'
+                    />
+                    <Note
+                        name='Arturo Vallejo'
+                        description='Developer Back-End'
+                    />
+                    <Note
+                        name='Jazael Hiram'
+                        description='Developer Back-End'
+                    />
+                    <Note
+                        name='Luis Mario Luna'
+                        description='Developer Back-End'
+                    />
                 </div>
             </div>
         </Fragment>

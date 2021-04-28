@@ -30,15 +30,15 @@ const ToDo = ({ title, Date, Description, User, Role }) => {
                 <div className="card-body" style={{ padding: '.8rem' }}>
                     {Description}
                 </div>
+                {
+                    Role !== 'Done' 
+                    ?
+                        <div className="card-footer" style={{ padding: '.8rem' }}>
+                            <button onClick={() => setShow(true)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: "100%" }} className="btn"><i className="icon icon-edit"></i>Edit</button>
+                        </div>
+                    : null
+                }
             </div>
-            {
-                Role !== 'Done' 
-                ?
-                    <div className="card-footer" style={{ padding: '.8rem' }}>
-                        <button onClick={() => setShow(true)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: "100%" }} className="btn"><i className="icon icon-edit"></i>Edit</button>
-                    </div>
-                : null
-            }
             {
                 Role !== 'Done' 
                 ?

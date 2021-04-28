@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react';
 import Particles from 'react-particles-js';
 import { useRouteMatch, Link } from 'react-router-dom';
+import { 
+    Login,
+    Register as Register2
+} from '../Common';
 
 const Register = () => {
 
@@ -43,8 +47,6 @@ const Register = () => {
             />
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%', zIndex: 400, position: 'fixed' }}>
                 <div class="card">
-                    <div class="card-header">
-                    </div>
                     <div class="card-body">
                     <ul class="tab tab-block">
                         <li class={`tab-item ${LoginActive()}`}>
@@ -54,9 +56,12 @@ const Register = () => {
                             <Link to='/Register'>Register</Link>
                         </li>
                     </ul>
-                    </div>
-                    <div class="card-footer">
-
+                    {
+                        match.url === '/Login' || match.url === '/login' 
+                        ?
+                            <Login/>
+                        : <Register2/>
+                    }
                     </div>
                 </div>
             </div>
