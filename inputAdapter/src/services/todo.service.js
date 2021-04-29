@@ -1,6 +1,6 @@
 import Api from '../utils/axiosClient';
 
-export class ServiceToDO {
+export class ServiceToDo {
 
     /**
      * @returns import('axios').AxiosResponse
@@ -36,10 +36,8 @@ export class ServiceToDO {
                     idStatus:data.idStatus,
                     isUser:data.idUser,
                     Fecha:data.Fecha
-
                 },
                 {
-                    
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -65,7 +63,6 @@ export class ServiceToDO {
                     idStatus:data.idStatus,
                     isUser:data.idUser,
                     Fecha:data.Fecha
-
                 },
                 {
                     headers: {
