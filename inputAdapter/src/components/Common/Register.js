@@ -30,8 +30,6 @@ const Register = () => {
             <button class="btn btn-primary btn-lg btn-block">Register</button>
             <div class="divider text-center" data-content="OR"></div>
             <button class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><i class="fab fa-google"></i>Register With Google</button>
-            <button class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><i class="fab fa-facebook-f"></i>Register With Facebook</button>
-            <button class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><i class="fab fa-github"></i>Login With GitHub</button>
         </form>
     );
 }
