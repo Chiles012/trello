@@ -17,12 +17,102 @@ const initState = {
     login: false,
     users: [],
     error: null,
-    loading: false
+    loading: false,
+    user: null
 }
 
 export default function( state = initState, action ) {
     switch ( action.type ) {
-        
+        case CREATE_USER:
+            return {
+                ...state,
+                users: [],
+                error: null,
+                loading: true,
+                user: null
+            }
+
+        case CREATE_USER_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+
+        case CREATE_USER_SUCCESS:
+            return {
+                ...state,
+                login: true,
+                loading: false,
+                user: action.payload
+            }
+
+        case GET_USER:
+            return {
+                ...state,
+                users: [],
+                error: null,
+                loading: true,
+                user: null
+            }
+
+        case GET_USER_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+
+        case GET_USER_SUCCESS:
+            return {
+                ...state,
+                users: action.payload,
+                loading: false
+            }
+
+        case UPDATE_USER:
+            return {
+                ...state,
+                users: [],
+                error: null,
+                loading: true,
+                user: null
+            }
+
+        case UPDATE_USER_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+
+        case UPDATE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            }
+
+        case DELETE_USER:
+            return {
+                ...state,
+                users: [],
+                error: null,
+                loading: true,
+                user: null
+            }
+
+        case DELETE_USER_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+
+        case DELETE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            }
 
     }
 }
