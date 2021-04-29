@@ -1,37 +1,46 @@
 import {
-    GET_NOTES,
-    GET_NOTES_ERROR,
-    GET_NOTES_SUCCESS
+    GET_TODOS,
+    GET_TODOS_ERROR,
+    GET_TODOS_SUCCESS,
+    CREATE_TODO,
+    CREATE_TODO_ERROR,
+    CREATE_TODO_SUCCESS,
+    UPDATE_TODO,
+    UPDATE_TODO_ERROR,
+    UPDATE_TODO_SUCCESS,
+    DELETE_TODO,
+    DELETE_TODO_ERROR,
+    DELETE_TODO_SUCCESS
 } from '../types'
 
 const initState = {
-    list: [],
+    todos: [],
     loading: false,
     error: null
 }
 
 export default function( state = initState, action ) {
     switch (action.type) {
-        case GET_NOTES:
+        case GET_TODOS:
             return {
                 ...state,
-                list: [],
+                todos: [],
                 loading: true,
                 error: null
             }
 
-        case GET_NOTES_ERROR:
+        case GET_TODOS_ERROR:
             return {
                 ...state,
                 error: action.payload,
                 loading: false
             }
 
-        case GET_NOTES_SUCCESS:
+        case GET_TODOS_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                notes: action.payload
+                todos: action.payload
             }
     
         default:
