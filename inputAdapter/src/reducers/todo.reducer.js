@@ -42,7 +42,69 @@ export default function( state = initState, action ) {
                 loading: false,
                 todos: action.payload
             }
-    
+            case CREATE_TODO:
+            return {
+                ...state,
+                todos: [],
+                loading: true,
+                error: null
+            }
+
+        case CREATE_TODO_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+
+        case CREATE_TODO_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                todos: action.payload
+            }
+            case UPDATE_TODO:
+            return {
+                ...state,
+                todos: [],
+                loading: true,
+                error: null
+            }
+
+        case UPDATE_TODO_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+
+        case UPDATE_TODO_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                todos: action.payload
+            }
+            case DELETE_TODO:
+            return {
+                ...state,
+                todos: [],
+                loading: true,
+                error: null
+            }
+
+        case DELETE_TODO_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+
+        case DELETE_TODO_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                todos: action.payload
+            }    
         default:
             return state
     }
