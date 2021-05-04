@@ -9,3 +9,9 @@ C:\Users\sersa\Downloads\TrelloApp\TrelloApp\TrelloApp.DomainModel\bin\Debug\Tre
 C:\Users\sersa\Downloads\TrelloApp\TrelloApp\TrelloApp.DomainModel\obj\Debug\TrelloApp.DomainModel.csproj.CoreCompileInputs.cache
 C:\Users\sersa\Downloads\TrelloApp\TrelloApp\TrelloApp.DomainModel\obj\Debug\TrelloApp.DomainModel.dll
 C:\Users\sersa\Downloads\TrelloApp\TrelloApp\TrelloApp.DomainModel\obj\Debug\TrelloApp.DomainModel.pdb
+D:\Universidad-ULSA\Semestre 4\Empresariales\trello\TrelloApp\TrelloApp.DomainModel\bin\Debug\TrelloApp.DomainModel.dll
+D:\Universidad-ULSA\Semestre 4\Empresariales\trello\TrelloApp\TrelloApp.DomainModel\bin\Debug\TrelloApp.DomainModel.pdb
+D:\Universidad-ULSA\Semestre 4\Empresariales\trello\TrelloApp\TrelloApp.DomainModel\obj\Debug\TrelloApp.DomainModel.csprojAssemblyReference.cache
+D:\Universidad-ULSA\Semestre 4\Empresariales\trello\TrelloApp\TrelloApp.DomainModel\obj\Debug\TrelloApp.DomainModel.csproj.CoreCompileInputs.cache
+D:\Universidad-ULSA\Semestre 4\Empresariales\trello\TrelloApp\TrelloApp.DomainModel\obj\Debug\TrelloApp.DomainModel.dll
+D:\Universidad-ULSA\Semestre 4\Empresariales\trello\TrelloApp\TrelloApp.DomainModel\obj\Debug\TrelloApp.DomainModel.pdb

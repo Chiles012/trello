@@ -114,5 +114,8 @@ export default function( state = initState, action ) {
                 loading: false
             }
 
+        default:
+            return state;
+
     }
 }
