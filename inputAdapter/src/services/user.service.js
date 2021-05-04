@@ -98,4 +98,26 @@ export class ServiceUser {
         }
     }
 
+    static async loginUser(id) {
+        try {
+            
+            const response = await Api.get(
+                `persons/${id}`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+
+            return response;
+
+        } catch (error) {
+            return {
+                status: 500,
+                error: 'Bad Request'
+            }
+        }
+    }
+
 }

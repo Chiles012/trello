@@ -10,9 +10,47 @@ import {
     UPDATE_USER_SUCCESS,
     DELETE_USER,
     DELETE_USER_ERROR,
-    DELETE_USER_SUCCESS
+    DELETE_USER_SUCCESS,
+    LOGIN_USER,
+    LOGIN_USER_ERROR,
+    LOGIN_USER_SUCCESS
 } from '../types';
 import { ServiceUser } from '../services/user.service';
+import firebase from '../config/firebaseConfig';
+
+export function loginUser(id) {
+    return async dispatch => {
+        dispatch( loginUserInit() );
+
+        try {
+
+            const response = await ServiceUser.loginUser(id);
+
+            if ( response.status >= 400 ) {
+                dispatch( loginUserError(true) );
+            } else {
+                dispatch( loginUserSuccess( response.data ) );
+            }
+
+        } catch (error) {
+            dispatch( loginUserError(true) );
+        }
+    }
+}
+
+const loginUserInit = () => ({
+    type: LOGIN_USER
+});
+
+const loginUserError = state => ({
+    type: LOGIN_USER_ERROR,
+    payload: state
+});
+
+const loginUserSuccess = user => ({
+    type: LOGIN_USER_SUCCESS,
+    payload: user
+})
 
 export function createUser(user) {
     return async dispatch => {
@@ -25,6 +63,13 @@ export function createUser(user) {
             if ( response.status >= 400 ) {
                 dispatch( createUserError(true) );
             } else {
+                localStorage.setItem('user', JSON.stringify(response.data.id));
+                
+                await firebase.firestore().collection('user').doc(response.data.id).set({
+                    "image": user.photoURL,
+                    "uid": user.uid
+                });
+
                 dispatch( createUserSuccess( response.data ) );
             }
 

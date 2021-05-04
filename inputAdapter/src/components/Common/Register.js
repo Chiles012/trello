@@ -10,12 +10,12 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
-    const [error, setError] = useState(false);
+    const [errorCatch, setErrorCatch] = useState(false);
 
     const dispatch = useDispatch();
     const create = user => dispatch( createUser(user) );
 
-    const { user } = useSelector( state => state.user );
+    const { user, loading, error } = useSelector( state => state.user );
 
     const RegisterGoogle = e => {
         e.preventDefault();
@@ -25,22 +25,18 @@ const Register = () => {
             .auth()
             .signInWithPopup(Provider)
             .then( result => {
-                create({ Nombre: result.user.displayName });
-                setError(false)
-                // ...
-                console.log(result.user);
-            })
-            .catch( error => {
-                setError(true);
+                create({ Nombre: result.user.displayName, photoURL: result.user.photoURL, uid: result.user.uid });
+            }).catch( error => {
+                setErrorCatch(true);
             })
     }
 
     const Register = async e => {
         e.preventDefault();
-        app.auth().signInWithEmailAndPassword( email, password ).then( user => {
+        app.auth().createUserWithEmailAndPassword( email, password ).then( user => {
             create({ Nombre: username });
         }).catch( error => {
-            setError(true);
+            setErrorCatch(true);
         })
         
     }
@@ -50,7 +46,7 @@ const Register = () => {
             email !== '' ||
             password !== '' )
             setError(false);
-    }, [username, email, password])
+    }, [username, email, password]);
 
     return (
             <Fragment>
@@ -85,17 +81,16 @@ const Register = () => {
                         </div>
                     </div>
                     {
-                        error 
+                        error || errorCatch 
                         ?
                         <div class="toast toast-error">
-                            <button class="btn btn-clear float-right"></button>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Error en el registro
                         </div>
                         : null
                     }
-                    <button onClick={Register} class="btn btn-primary btn-lg btn-block">Register</button>
+                    <button onClick={Register} class="btn btn-primary btn-lg btn-block">{ loading ? <div class="loading"></div> : "Register" }</button>
                     <div class="divider text-center" data-content="OR"></div>
-                    <button onClick={RegisterGoogle} class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><i class="fab fa-google"></i>Register With Google</button>
+                    <button onClick={RegisterGoogle} class="btn btn-primary btn-lg btn-block" style={{ margin: '15px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><i class="fab fa-google"></i>{ loading ? <div class="loading"></div> : "Register With Google" }</button>
                 </form>
             }
         </Fragment>

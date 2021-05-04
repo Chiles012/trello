@@ -10,7 +10,10 @@ import {
     UPDATE_USER_SUCCESS,
     DELETE_USER,
     DELETE_USER_ERROR,
-    DELETE_USER_SUCCESS
+    DELETE_USER_SUCCESS,
+    LOGIN_USER,
+    LOGIN_USER_ERROR,
+    LOGIN_USER_SUCCESS
 } from '../types';
 
 const initState = {
@@ -40,6 +43,30 @@ export default function( state = initState, action ) {
             }
 
         case CREATE_USER_SUCCESS:
+            return {
+                ...state,
+                login: true,
+                loading: false,
+                user: action.payload
+            }
+
+        case LOGIN_USER:
+            return {
+                ...state,
+                users: [],
+                error: null,
+                loading: true,
+                user: null
+            }
+
+        case LOGIN_USER_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+
+        case LOGIN_USER_SUCCESS:
             return {
                 ...state,
                 login: true,

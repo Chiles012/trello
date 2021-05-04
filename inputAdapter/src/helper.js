@@ -13,3 +13,20 @@ export function authVerify() {
         login: false
     }
 }
+
+export function usersVerify( arrayUsers = [], user = '' ) {
+    let id = 0;
+    let flag = false;
+    
+    arrayUsers.forEach(element => {
+        if ( element.nombre === user ) {
+            id = element.id;
+            flag = true;
+        }
+    });
+
+    return {
+        id,
+        flag
+    }
+}
