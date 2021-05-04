@@ -59,6 +59,7 @@ const Login = () => {
                 })
 
                 if ( id === 0 ) {
+                    localStorage.setItem('user', JSON.stringify(id));
                     login(id);
                 } else {
                     errorCatch(true);
