@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import app from '../../config/firebaseConfig';
+import { useSelector } from 'react-redux';
 
 const HeaderDiv = styled.div`
     background-color: #6178e9;
@@ -23,10 +25,22 @@ const HeaderDiv = styled.div`
 `
 
 const Header = () => {
+
+    const { user } = useSelector( state => state.user );
+
+    const [values, setValues] = useState('CH');
+
+    useEffect(() => {
+        let u1 = user.nombre.split(' ')[0][0];
+        let u2 = user.nombre.split(' ')[1][0];
+
+        setValues(`${u1}${u2}`);
+    }, [])
+
     return ( 
         <HeaderDiv>
             <p>Trello-App</p>
-            <figure class="avatar avatar-md">
+            <figure class="avatar avatar-md" data-initial={values}>
                 <i class="avatar-presence online"></i>
             </figure>
         </HeaderDiv>
