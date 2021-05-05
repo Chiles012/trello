@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Modal, TaskModal } from '../Common';
-import Particles from 'react-particles-js';
 
-const ToDo = ({ title, Date, Description, User, Role }) => {
+const ToDo = ({ title, Date, Description, User, Role, ID }) => {
 
     const [show, setShow] = useState(false);
 
@@ -47,6 +46,7 @@ const ToDo = ({ title, Date, Description, User, Role }) => {
                         onHide={setShow}
                         title='Edit'
                         task={{
+                            id: ID,
                             title: title,
                             Date: Date,
                             Description: Description,
@@ -65,6 +65,7 @@ const ToDo = ({ title, Date, Description, User, Role }) => {
                             setTaskCheck={setShow}
                             title={title}
                             task={{
+                                id: ID,
                                 title: title,
                                 Date: Date,
                                 Description: Description,

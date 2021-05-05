@@ -39,10 +39,10 @@ const ContainerList = ({ title, tasks, icon }) => {
                 tasks.map( (task, i) => 
                     <ToDo 
                         key={i}
-                        title={task.title}
-                        Date={task.Date}
-                        Description={task.Description}
-                        User={task.User}
+                        title={task.status}
+                        Date={task.deadLine.split('T')[0]}
+                        Description={task.descripcion}
+                        User={task.usuario}
                         Role={title}
                     />
                 )

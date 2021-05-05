@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { updateTodo, createTodo } from '../../actions/todo.action';
+import { getUsers } from '../../actions/user.action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Modal = ({ title, show, onHide, task }) => {
 
@@ -14,22 +17,47 @@ const Modal = ({ title, show, onHide, task }) => {
     }
 
     const [done, setDone] = useState({
-        title: task.title || '',
         Date: task.Date || new Date().getFullYear() + '-' + setMonth() + '-' + new Date().getDate(),
         Description: task.Description || '',
         User: task.User || '',
         Role: task.Role || ''
     })
 
+    const dispatch = useDispatch();
+    const get = () => dispatch(getUsers());
+    const create = todo => dispatch(createTodo(todo));
+    const upgrade = todo => dispatch(updateTodo(todo));
+
+    const { loading, error } = useSelector( state => state.todo );
+    const { users } = useSelector( state => state.user );
+
     const onCancel = () => {
         setDone({
-            title: task.title || '',
+            id: task.id,
             Date: task.Date || new Date().getFullYear() + '-' + setMonth() + '-' + new Date().getDate(),
             Description: task.Description || '',
             User: task.User || '',
             Role: task.Role || ''
         });
         onHide(false);
+    }
+
+    useEffect(() => {
+        if ( users.length === 0 ) get();
+    }, [users])
+
+    const onSubmit = () => {
+        let status = title === 'Add ToDo' ? 1 : 2;
+        if ( title === 'Add ToDo' ) {
+            create({ ...done });
+        } else {
+            upgrade({ ...done, idStatus: status });
+        }
+    }
+
+    const changeStatus = () => {
+        let status = title === 'Add ToDo' ? 2 : 3;
+        upgrade({ ...done, idStatus: status });
     }
 
     return ( 
@@ -44,10 +72,6 @@ const Modal = ({ title, show, onHide, task }) => {
                     <div class="content">
                         <div>
                             <div class="input-group" style={{ alignItems: 'center', margin: '5px 0' }}>
-                                <div className='col-3'>Title:</div>
-                                <input onChange={e => setDone({ ...done, title: e.target.value })} value={done.title} type="text" class="form-input col-9" placeholder='title' />
-                            </div>
-                            <div class="input-group" style={{ alignItems: 'center', margin: '5px 0' }}>
                                 <div className='col-3'>Date:</div>
                                 <input onChange={e => setDone({ ...done, Date: e.target.value })} type="date" class="form-input col-9" value={done.Date} />
                             </div>
@@ -55,9 +79,11 @@ const Modal = ({ title, show, onHide, task }) => {
                                 <div className='col-3'>User:</div>
                                 <select onChange={e => setDone({ ...done, User: e.target.value })} value={done.User} class="form-select col-9">
                                     <option value=''>Choose an option</option>
-                                    <option value='1'>Vallejo</option>
-                                    <option value='2'>Skype</option>
-                                    <option value='3'>Hipchat</option>
+                                    {
+                                        users.map( us => 
+                                            <option value={us.id}>{us.nombre}</option>
+                                        )
+                                    }
                                 </select>
                             </div>
                             <div class="input-group" style={{ alignItems: 'center', margin: '5px 0' }}>
@@ -75,14 +101,22 @@ const Modal = ({ title, show, onHide, task }) => {
                     {
                         title !== 'Add ToDo' 
                         ?
-                            <button className='btn btn-success' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginTop: '20px' }}><i className='icon icon-forward'></i>{ done.Role === 'ToDo' ? "To Process" : "To Done" }</button>
+                            <button onClick={() => changeStatus()} className='btn btn-success' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginTop: '20px' }}><i className='icon icon-forward'></i>{ done.Role === 'ToDo' ? "To Process" : "To Done" }</button>
+                        : null
+                    }
+                    {
+                        error 
+                        ?
+                        <div class="toast toast-error">
+                            Error en el ToDo.
+                        </div>
                         : null
                     }
                 </div>
                 <div class="modal-footer">
                     <div>
                         <button style={{ margin: '0 5px' }} className='btn btn-error' onClick={() => onCancel()}>Cancel</button>
-                        <button style={{ margin: '0 5px' }} className='btn btn-success'>{ title === "Add ToDo" ? "Add" : "Edit" }</button>
+                        <button onClick={() => onSubmit()} style={{ margin: '0 5px' }} className='btn btn-success'>{ loading ? <div class="loading"></div> : title === "Add ToDo" ? "Add" : "Edit" }</button>
                     </div>
                 </div>
             </div>

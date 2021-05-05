@@ -12,7 +12,7 @@ import {
     DELETE_TODO_ERROR,
     DELETE_TODO_SUCCESS
 } from '../types';
-import { ServiceToDO } from '../services/todo.service';
+import { ServiceToDo } from '../services/todo.service';
 
 export function getTodo() {
     return async dispatch => {
@@ -20,13 +20,13 @@ export function getTodo() {
         
         try {
 
-            const response = await ServiceToDO.getToDo();
+            const response = await ServiceToDo.getToDo();
 
             if ( response.status >= 400 ) {
                 dispatch( getTodoError(true) );
+            } else {
+                dispatch( getTodoSuccess( response.data ) );
             }
-
-            dispatch( getTodoSuccess( response.data ) );
 
         } catch (error) {
             dispatch( getTodoError(true) );
@@ -34,38 +34,38 @@ export function getTodo() {
     }
 }
 
-export function createTodo() {
+export function createTodo(todo) {
     return async dispatch => {
         dispatch( createTodoInit() );
         
         try {
 
-            const response = await ServiceToDO.createToDo();
+            const response = await ServiceToDo.createToDo(todo);
 
             if ( response.status >= 400 ) {
                 dispatch( createTodoError(true) );
+            } else {
+                dispatch( createTodoSuccess( response.data ) );
             }
-
-            dispatch( createTodoSuccess( response.data ) );
 
         } catch (error) {
             dispatch( createTodoError(true) );
         }
     }
 }
-export function updateTodo() {
+export function updateTodo(todo) {
     return async dispatch => {
         dispatch( updateTodoInit() );
         
         try {
 
-            const response = await ServiceToDO.updateToDo();
+            const response = await ServiceToDo.updateToDo(todo);
 
             if ( response.status >= 400 ) {
                 dispatch( updateTodoError(true) );
+            } else {
+                dispatch( updateTodoSuccess( response.data ) );
             }
-
-            dispatch( updateTodoSuccess( response.data ) );
 
         } catch (error) {
             dispatch( updateTodoError(true) );
@@ -73,19 +73,19 @@ export function updateTodo() {
     }
 }
 
-export function deleteTodo() {
+export function deleteTodo(id) {
     return async dispatch => {
         dispatch( deleteTodoInit() );
         
         try {
 
-            const response = await ServiceToDO.deleteToDo();
+            const response = await ServiceToDo.deleteToDo(id);
 
             if ( response.status >= 400 ) {
                 dispatch( deleteTodoError(true) );
+            } else {
+                dispatch( deleteTodoSuccess( response.data ) );
             }
-
-            dispatch( deleteTodoSuccess( response.data ) );
 
         } catch (error) {
             dispatch( deleteTodoError(true) );

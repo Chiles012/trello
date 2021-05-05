@@ -32,10 +32,10 @@ export class ServiceToDo {
             const response = await Api.post(
                 'todo',
                 {   
-                    Description:data.Description,
-                    idStatus:data.idStatus,
-                    isUser:data.idUser,
-                    Fecha:data.Fecha
+                    Description: data.Description,
+                    idStatus: 1,
+                    isUser: data.User,
+                    Fecha: data.Fecha
                 },
                 {
                     headers: {
@@ -59,10 +59,10 @@ export class ServiceToDo {
             const response = await Api.put(
                 'todo/'+data.id,
                 {   
-                    Description:data.Description,
-                    idStatus:data.idStatus,
-                    isUser:data.idUser,
-                    Fecha:data.Fecha
+                    Description: data.Description,
+                    idStatus: data.idStatus,
+                    isUser: data.User,
+                    Fecha: data.Fecha  
                 },
                 {
                     headers: {
