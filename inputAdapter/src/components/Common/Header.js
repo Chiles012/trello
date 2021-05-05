@@ -29,10 +29,14 @@ const Header = () => {
     const { user } = useSelector( state => state.user );
 
     const [values, setValues] = useState('CH');
+    const [image, setImage] = useState('')
 
-    useEffect(() => {
+    useEffect(async () => {
         let u1 = user.nombre.split(' ')[0][0];
         let u2 = user.nombre.split(' ')[1][0];
+
+        const i = await app.firestore().collection('user').doc(user.id).get()['image'];
+        setImage(i);
 
         setValues(`${u1}${u2}`);
     }, [])
@@ -41,6 +45,7 @@ const Header = () => {
         <HeaderDiv>
             <p>Trello-App</p>
             <figure class="avatar avatar-md" data-initial={values}>
+                <img src={image} alt={user.nombre} />
                 <i class="avatar-presence online"></i>
             </figure>
         </HeaderDiv>
