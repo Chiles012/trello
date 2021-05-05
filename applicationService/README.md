@@ -1,2 +1,0 @@
-# ApplicationService
-# \\ React Trello //

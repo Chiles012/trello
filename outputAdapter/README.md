@@ -1,2 +1,0 @@
-#   OutputAdapter
-# \\ React Trello //
