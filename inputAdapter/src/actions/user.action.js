@@ -63,17 +63,22 @@ export function createUser(user) {
             if ( response.status >= 400 ) {
                 dispatch( createUserError(true) );
             } else {
+                console.log('creating user ...');
+                console.log(response.data.id, user.photoURL, user.uid);
                 localStorage.setItem('user', JSON.stringify(response.data.id));
                 
-                await firebase.firestore().collection('user').doc(response.data.id).set({
+                await firebase.firestore().collection('user').doc(`${response.data.id}`).set({
                     "image": user.photoURL,
                     "uid": user.uid
                 });
+
+                console.log('creating user ...')
 
                 dispatch( createUserSuccess( response.data ) );
             }
 
         } catch (error) {
+            console.log(error);
             dispatch( createUserError(true) );
         }
     }

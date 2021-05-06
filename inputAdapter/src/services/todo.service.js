@@ -9,7 +9,7 @@ export class ServiceToDo {
         try {
             
             const response = await Api.get(
-                'todo',
+                'todos',
                 {
                     headers: {
                         'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ export class ServiceToDo {
         try {
             
             const response = await Api.post(
-                'todo',
+                'todos',
                 {   
                     Description: data.Description,
                     idStatus: 1,
@@ -57,7 +57,7 @@ export class ServiceToDo {
         try {
             
             const response = await Api.put(
-                'todo/'+data.id,
+                'todos/'+data.id,
                 {   
                     Description: data.Description,
                     idStatus: data.idStatus,
@@ -84,7 +84,7 @@ export class ServiceToDo {
         try {
             
             const response = await Api.delete(
-                'todo/'+id,
+                'todos/'+id,
                 {
                     headers: {
                         'Content-Type': 'application/json'

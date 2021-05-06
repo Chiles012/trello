@@ -59,6 +59,7 @@ export function updateTodo(todo) {
         
         try {
 
+            console.log(todo.id)
             const response = await ServiceToDo.updateToDo(todo);
 
             if ( response.status >= 400 ) {

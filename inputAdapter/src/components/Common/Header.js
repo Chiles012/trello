@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import app from '../../config/firebaseConfig';
 import { useSelector } from 'react-redux';
@@ -32,10 +32,12 @@ const Header = () => {
     const [image, setImage] = useState('')
 
     useEffect(async () => {
+        console.log(user.nombre)
         let u1 = user.nombre.split(' ')[0][0];
         let u2 = user.nombre.split(' ')[1][0];
 
-        const i = await app.firestore().collection('user').doc(user.id).get()['image'];
+        const i = await app.firestore().collection('user').doc(`${user.id}`).get()['image'];
+        console.log(i);
         setImage(i);
 
         setValues(`${u1}${u2}`);
@@ -45,7 +47,7 @@ const Header = () => {
         <HeaderDiv>
             <p>Trello-App</p>
             <figure class="avatar avatar-md" data-initial={values}>
-                <img src={image} alt={user.nombre} />
+                <img src={image} alt='' />
                 <i class="avatar-presence online"></i>
             </figure>
         </HeaderDiv>

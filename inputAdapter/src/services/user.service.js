@@ -14,6 +14,8 @@ export class ServiceUser {
                 }
             )
 
+            console.log(response);
+
             return response;
 
         } catch (error) {
@@ -31,7 +33,7 @@ export class ServiceUser {
                 'persons/' + data.id,
                 {
                     Nombre: data.Nombre,
-                    idRole: 1
+                    idRol: 1
                 },
                 {
                     headers: {
@@ -79,7 +81,7 @@ export class ServiceUser {
                 'persons',
                 {
                     Nombre: data.Nombre,
-                    idRole: 1
+                    idRol: 1
                 },
                 {
                     headers: {

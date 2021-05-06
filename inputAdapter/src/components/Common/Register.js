@@ -45,7 +45,7 @@ const Register = () => {
         if ( username !== '' ||
             email !== '' ||
             password !== '' )
-            setError(false);
+            setErrorCatch(false);
     }, [username, email, password]);
 
     return (
@@ -81,7 +81,7 @@ const Register = () => {
                         </div>
                     </div>
                     {
-                        error || errorCatch 
+                        errorCatch || error
                         ?
                         <div class="toast toast-error">
                             Error en el registro

@@ -17,6 +17,7 @@ const Modal = ({ title, show, onHide, task }) => {
     }
 
     const [done, setDone] = useState({
+        id: task.id,
         Date: task.Date || new Date().getFullYear() + '-' + setMonth() + '-' + new Date().getDate(),
         Description: task.Description || '',
         User: task.User || '',
@@ -56,7 +57,7 @@ const Modal = ({ title, show, onHide, task }) => {
     }
 
     const changeStatus = () => {
-        let status = title === 'Add ToDo' ? 2 : 3;
+        let status = done.Role === 'ToDo' ? 2 : 3;
         upgrade({ ...done, idStatus: status });
     }
 

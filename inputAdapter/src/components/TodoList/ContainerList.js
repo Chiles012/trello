@@ -39,6 +39,7 @@ const ContainerList = ({ title, tasks, icon }) => {
                 tasks.map( (task, i) => 
                     <ToDo 
                         key={i}
+                        ID={task.id}
                         title={task.status}
                         Date={task.deadLine.split('T')[0]}
                         Description={task.descripcion}
