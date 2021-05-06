@@ -28,14 +28,14 @@ export class ServiceToDo {
     }
     static async createToDo(data) {
         try {
-            
+            console.log(data);
             const response = await Api.post(
                 'todos',
                 {   
-                    Description: data.Description,
+                    Descripcion: data.Description,
                     idStatus: 1,
-                    isUser: data.User,
-                    Fecha: data.Fecha
+                    idUser: data.User,
+                    Fecha: data.Date
                 },
                 {
                     headers: {
@@ -55,14 +55,14 @@ export class ServiceToDo {
     }
     static async updateToDo(data) {
         try {
-            
+            console.log(data.User);
             const response = await Api.put(
                 'todos/'+data.id,
                 {   
-                    Description: data.Description,
+                    Descripcion: data.Description,
                     idStatus: data.idStatus,
-                    isUser: data.User,
-                    Fecha: data.Fecha  
+                    idUser: data.User,
+                    Fecha: data.Date  
                 },
                 {
                     headers: {

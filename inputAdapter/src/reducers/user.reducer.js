@@ -29,10 +29,8 @@ export default function( state = initState, action ) {
         case CREATE_USER:
             return {
                 ...state,
-                users: [],
                 error: null,
-                loading: true,
-                user: null
+                loading: true
             }
 
         case CREATE_USER_ERROR:
@@ -53,10 +51,8 @@ export default function( state = initState, action ) {
         case LOGIN_USER:
             return {
                 ...state,
-                users: [],
                 error: null,
-                loading: true,
-                user: null
+                loading: true
             }
 
         case LOGIN_USER_ERROR:
@@ -80,7 +76,6 @@ export default function( state = initState, action ) {
                 users: [],
                 error: null,
                 loading: true,
-                user: null
             }
 
         case GET_USER_ERROR:
@@ -100,7 +95,6 @@ export default function( state = initState, action ) {
         case UPDATE_USER:
             return {
                 ...state,
-                users: [],
                 error: null,
                 loading: true,
                 user: null
@@ -122,10 +116,8 @@ export default function( state = initState, action ) {
         case DELETE_USER:
             return {
                 ...state,
-                users: [],
                 error: null,
                 loading: true,
-                user: null
             }
 
         case DELETE_USER_ERROR:

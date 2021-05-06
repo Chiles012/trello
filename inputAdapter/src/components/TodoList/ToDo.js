@@ -1,5 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Modal, TaskModal } from '../Common';
+import Aos from 'aos';
 
 const ToDo = ({ title, Date, Description, User, Role, ID }) => {
 
@@ -19,9 +20,13 @@ const ToDo = ({ title, Date, Description, User, Role, ID }) => {
         if ( Role === 'Done' ) setShow(true);
     }
 
+    useEffect(() => {
+        Aos.init();
+    }, [])
+
     return ( 
         <div>
-            <div onClick={() => checkDone()} className={`card ${bg()}`} style={{ border: 'none', margin: '5px 0', cursor: cursor() }}>
+            <div onClick={() => checkDone()} className={`card ${bg()}`} style={{ border: 'none', margin: '5px 0', cursor: cursor() }} data-aos='fade-up'>
                 <div className="card-header">
                     <div className="card-title h5">{title}</div>
                     <div className="card-subtitle text-gray">{Date}</div>

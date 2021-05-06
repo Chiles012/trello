@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Modal } from '../Common';
 import ToDo from './ToDo';
+import { useSelector } from 'react-redux';
 
 const ContainerList = ({ title, tasks, icon }) => {
 
     const [show, setShow] = useState(false);
+
+    const { loading } = useSelector( state => state.todo );
 
     return (
         <div 
@@ -35,7 +38,7 @@ const ContainerList = ({ title, tasks, icon }) => {
             }}
         >
             {
-                tasks.lenght === 0 ? <div className="card-subtitle text-gray">No hay tareas...</div> :
+                tasks.length === 0 ? <div className="card-subtitle text-gray" style={{ textAlign: 'center' }}>No hay tareas</div> :
                 tasks.map( (task, i) => 
                     <ToDo 
                         key={i}
@@ -43,7 +46,7 @@ const ContainerList = ({ title, tasks, icon }) => {
                         title={task.status}
                         Date={task.deadLine.split('T')[0]}
                         Description={task.descripcion}
-                        User={task.usuario}
+                        User={task.idUser}
                         Role={title}
                     />
                 )

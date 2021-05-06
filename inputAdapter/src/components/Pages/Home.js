@@ -22,13 +22,15 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        const to = todos.filter( x => x.status === 'ToDo' );
-        const pro = todos.filter( x => x.status === 'Process' );
-        const done = todos.filter( x => x.status === 'Done' );
+        if ( todos.length > 0 ) {
+            const to = todos.filter( x => x.status === 'ToDo' );
+            const pro = todos.filter( x => x.status === 'Process' );
+            const d = todos.filter( x => x.status === 'Done' );
 
-        setToDoList([ ...to ]);
-        setProcessList([ ...pro ]);
-        setDoneList([ ...done ]);
+            setToDoList([ ...to ]);
+            setProcessList([ ...pro ]);
+            setDoneList([ ...d ]);
+        }
 
     }, [todos])
 
@@ -46,10 +48,6 @@ const Home = () => {
                             <div className='columns' style={{ height: '100%', width: '90%' }}>
                                 <div className='column col-4' style={{ margin: 'auto', height: '90%' }}>
                                     {
-                                        loading 
-                                        ?
-                                            <div class="loading"></div>
-                                        :
                                         <ContainerList 
                                             title="ToDo"
                                             tasks={toDoList}
@@ -59,10 +57,6 @@ const Home = () => {
                                 </div>
                                 <div className='column col-4' style={{ margin: 'auto', height: '90%' }}>
                                     {
-                                        loading 
-                                        ?
-                                            <div class="loading"></div>
-                                        :
                                         <ContainerList 
                                             title="Process"
                                             tasks={processList}
@@ -72,10 +66,6 @@ const Home = () => {
                                 </div>
                                 <div className='column col-4' style={{ margin: 'auto', height: '90%' }}>
                                     {
-                                        loading 
-                                        ?
-                                            <div class="loading"></div>
-                                        :
                                         <ContainerList 
                                             title="Done"
                                             tasks={doneList}

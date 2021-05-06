@@ -36,7 +36,7 @@ const Header = () => {
         let u1 = user.nombre.split(' ')[0][0];
         let u2 = user.nombre.split(' ')[1][0];
 
-        const i = await app.firestore().collection('user').doc(`${user.id}`).get()['image'];
+        const i = await (await app.firestore().collection('user').doc(`${user.id}`).get()).data()['image'];
         console.log(i);
         setImage(i);
 

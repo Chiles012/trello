@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { updateTodo, createTodo } from '../../actions/todo.action';
+import { updateTodo, createTodo, getTodo } from '../../actions/todo.action';
 import { getUsers } from '../../actions/user.action';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -28,7 +28,8 @@ const Modal = ({ title, show, onHide, task }) => {
     const get = () => dispatch(getUsers());
     const create = todo => dispatch(createTodo(todo));
     const upgrade = todo => dispatch(updateTodo(todo));
-
+    const getTo = () => dispatch(getTodo());
+ 
     const { loading, error } = useSelector( state => state.todo );
     const { users } = useSelector( state => state.user );
 
@@ -48,17 +49,37 @@ const Modal = ({ title, show, onHide, task }) => {
     }, [users])
 
     const onSubmit = () => {
-        let status = title === 'Add ToDo' ? 1 : 2;
+        let status = done.Role === 'ToDo' ? 1 : 2;
         if ( title === 'Add ToDo' ) {
             create({ ...done });
+            setTimeout(() => {
+                getTo();
+            }, 2000);
+            setDone({
+                id: task.id,
+                Date: task.Date || new Date().getFullYear() + '-' + setMonth() + '-' + new Date().getDate(),
+                Description: task.Description || '',
+                User: task.User || '',
+                Role: task.Role || ''
+            });
         } else {
             upgrade({ ...done, idStatus: status });
+            setTimeout(() => {
+                getTo();
+            }, 2000);
         }
+        
+        onHide(false);
     }
 
     const changeStatus = () => {
         let status = done.Role === 'ToDo' ? 2 : 3;
+        console.log(status);
         upgrade({ ...done, idStatus: status });
+        setTimeout(() => {
+            getTo();
+        }, 2000)
+        onHide(false);
     }
 
     return ( 
